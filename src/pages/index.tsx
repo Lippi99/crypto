@@ -69,6 +69,7 @@ const Home: NextPage = () => {
             src="/bg-img.svg"
             layout="fill"
             quality={100}
+            priority
             alt="background"
           />
         </Box>
@@ -193,7 +194,7 @@ const Home: NextPage = () => {
               top: 0,
               right: 0,
               bottom: 0,
-              zIndex: -1,
+              zIndex: -9,
             }}
           >
             <NextImage
@@ -225,6 +226,16 @@ const Home: NextPage = () => {
           </Box>
 
           <Box css={{ textAlign: "center" }}>
+            <Box
+              css={{
+                position: "absolute",
+                left: "30%",
+                top: "50%",
+                boxShadow: "0 0 140px 90px #BD391C" /* outer cyan */,
+                zIndex: -999,
+              }}
+            />
+
             <h2 className={title({ variant: "secondary" })}>
               A crypto investment platform <br /> that invests in you
             </h2>
@@ -242,7 +253,29 @@ const Home: NextPage = () => {
           </Box>
         </Section>
 
-        <Section></Section>
+        <Section css={{ position: "relative" }}>
+          <Box
+            css={{
+              width: "200px",
+              position: "absolute",
+              right: "20%",
+              bottom: 0,
+              borderRadius: "50%",
+              backgroundColor: "#fff",
+              boxShadow: "0 0 140px 90px #2C4982" /* outer cyan */,
+            }}
+          ></Box>
+          <Box css={{ textAlign: "center" }}>
+            <h2 className={title({ variant: "secondary" })}>
+              Buy and sell with the lowest <br /> fees in the industry
+            </h2>
+            <p className={paragraph({ variant: "main" })}>
+              Buy and sell 150+ cryptocurrencies with 20+ fiat currencies using
+              bank <br /> transfers or your credit/debit card.
+            </p>
+            <Button variant="purple">Learn more &#8594;</Button>
+          </Box>
+        </Section>
       </Box>
     </>
   );
