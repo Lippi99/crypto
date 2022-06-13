@@ -56,7 +56,7 @@ export const Header = () => {
       </Flex>
       <Flex>
         <Button
-          css={{ width: "90px", padding: "$2", mr: "$6" }}
+          css={{ width: "90px", padding: "$2", mr: "$3" }}
           variant="black"
         >
           Sign in
