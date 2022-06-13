@@ -3,8 +3,39 @@ import Head from "next/head";
 import { Box } from "../components/Box";
 import { Flex } from "../components/Flex";
 import { Header } from "../components/Header";
+import NextImage from "next/image";
+import { css } from "../../stitches.config";
+import { Section } from "../components/Section";
 
 const Home: NextPage = () => {
+  const title = css({
+    variants: {
+      variant: {
+        main: {
+          fontSize: "$9",
+          color: "White",
+          fontWeight: "bolder",
+          fontFamily: "Inter",
+        },
+      },
+    },
+  });
+
+  const paragraph = css({
+    variants: {
+      variant: {
+        main: {
+          fontSize: "$1",
+          color: "#898CA9",
+          fontFamily: "Inter",
+          margin: "$3",
+          textAlign: "center",
+          lineHeight: 1.5,
+        },
+      },
+    },
+  });
+
   return (
     <>
       <Head>
@@ -13,19 +44,36 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box>
+        <Header />
         <Box
           css={{
             position: "absolute",
-            left: 0,
             top: 0,
             right: 0,
             bottom: 0,
+            left: 0,
             zIndex: -1,
-            background:
-              "radial-gradient(circle at top left, #18FF9E, rgba(255, 255, 255, 0) 15%), radial-gradient(circle at 80% 20%, #173B80, rgba(255, 255, 255, 0) 15%)",
           }}
-        ></Box>
-        <Header />
+        >
+          <NextImage
+            objectFit="cover"
+            src="/bg-img.svg"
+            layout="fill"
+            quality={100}
+            alt="background"
+          />
+        </Box>
+        <Section css={{ paddingRight: "$9", paddingBottom: "$6" }}>
+          <Flex direction="column" justify="between" align="center">
+            <h1 className={title({ variant: "main" })}>
+              We make crypto <br /> clear and simple
+            </h1>
+            <p className={paragraph({ variant: "main" })}>
+              Buy, sell, and grow your crypto with CoinFlip,
+              the platform dedicated <br /> to every trader at every level.
+            </p>
+          </Flex>
+        </Section>
       </Box>
     </>
   );

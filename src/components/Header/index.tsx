@@ -11,9 +11,9 @@ export const Header = () => {
       justify="between"
       align="center"
       css={{
-        paddingLeft: "$9",
-        paddingRight: "$9",
-        paddingBottom: "$4",
+        paddingLeft: "$7",
+        paddingRight: "$7",
+        paddingBottom: "$6",
       }}
     >
       <NextLink href="/">
