@@ -6,6 +6,8 @@ import { Header } from "../components/Header";
 import NextImage from "next/image";
 import { css } from "../../stitches.config";
 import { Section } from "../components/Section";
+import { Button } from "../components/Button";
+import { Grid } from "../components/Grid";
 
 const Home: NextPage = () => {
   const title = css({
@@ -13,6 +15,12 @@ const Home: NextPage = () => {
       variant: {
         main: {
           fontSize: "$9",
+          color: "White",
+          fontWeight: "bolder",
+          fontFamily: "Inter",
+        },
+        secondary: {
+          fontSize: "$7",
           color: "White",
           fontWeight: "bolder",
           fontFamily: "Inter",
@@ -28,7 +36,8 @@ const Home: NextPage = () => {
           fontSize: "$1",
           color: "#898CA9",
           fontFamily: "Inter",
-          margin: "$3",
+          marginTop: "$3",
+          marginBottom: "$4",
           textAlign: "center",
           lineHeight: 1.5,
         },
@@ -63,8 +72,18 @@ const Home: NextPage = () => {
             alt="background"
           />
         </Box>
-        <Section css={{ paddingRight: "$9", paddingBottom: "$6" }}>
-          <Flex direction="column" justify="between" align="center">
+        <Section
+          css={{
+            maxWidth: "1145px",
+            margin: "0 auto",
+          }}
+        >
+          <Flex
+            direction="column"
+            justify="between"
+            align="center"
+            css={{ marginBottom: "$9" }}
+          >
             <h1 className={title({ variant: "main" })}>
               We make crypto <br /> clear and simple
             </h1>
@@ -72,7 +91,99 @@ const Home: NextPage = () => {
               Buy, sell, and grow your crypto with CoinFlip,
               the platform dedicated <br /> to every trader at every level.
             </p>
+            <Button
+              css={{ width: "120px", padding: "$2" }}
+              variant="gradientBluePurple"
+            >
+              Get Started
+            </Button>
           </Flex>
+
+          <Grid columns={3} gap={3} justify="between">
+            <Box
+              css={{
+                background: "#1A1B23",
+                borderRadius: "20px",
+                textAlign: "center",
+                marginTop: "$7",
+                paddingTop: "$4",
+                paddingBottom: "$7",
+                paddingLeft: "$8",
+                paddingRight: "$8",
+                zIndex: -5,
+              }}
+            >
+              <NextImage
+                src="/arrow-left-right.svg"
+                width={70}
+                height={70}
+                objectFit="contain"
+              />
+              <h2 className={title({ variant: "secondary" })}>Trade Desk</h2>
+              <p className={paragraph({ variant: "main" })}>
+                Invest in crypto anytime, anywhere with our safe, secure, and
+                easy to use online platform
+              </p>
+              <Button variant="purple">Get Started &#8594;</Button>
+            </Box>
+
+            <Box
+              css={{
+                background: "#1A1B23",
+                borderRadius: "20px",
+                textAlign: "center",
+                marginTop: "$7",
+                paddingTop: "$4",
+                paddingBottom: "$7",
+                paddingLeft: "$8",
+                paddingRight: "$8",
+                zIndex: -5,
+              }}
+            >
+              <NextImage
+                src="/coin-flip-atm.svg"
+                width={70}
+                height={70}
+                objectFit="contain"
+              />
+              <h2 className={title({ variant: "secondary" })}>CoinFlip ATMs</h2>
+              <p className={paragraph({ variant: "main" })}>
+                We have thousands of ATMs located across the U.S. where you can
+                easily convert cash to crypto
+              </p>
+              <Button variant="purple">Find an ATM &#8594;</Button>
+            </Box>
+
+            <Box
+              css={{
+                background: "#1A1B23",
+                borderRadius: "20px",
+                textAlign: "center",
+                marginTop: "$7",
+                paddingTop: "$4",
+                paddingBottom: "$7",
+                paddingLeft: "$3",
+                paddingRight: "$3",
+                zIndex: -5,
+              }}
+            >
+              <NextImage
+                src="/coin-flip-wallet.svg"
+                width={70}
+                height={70}
+                objectFit="contain"
+              />
+              <h2 className={title({ variant: "secondary" })}>
+                CoinFlip Wallet
+              </h2>
+              <p className={paragraph({ variant: "main" })}>
+                Store your growing investments in our non-custodial wallet that
+                gives you access to a full suite of DeFi services in one place
+              </p>
+
+              <Button variant="purple">Download the App &#8594;</Button>
+            </Box>
+          </Grid>
         </Section>
       </Box>
     </>

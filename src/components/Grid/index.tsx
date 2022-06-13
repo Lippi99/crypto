@@ -6,59 +6,57 @@ export const Grid = styled("div", {
 
   variants: {
     align: {
-      align: {
-        start: {
-          alignItems: "start",
-        },
-        center: {
-          alignItems: "center",
-        },
-        end: {
-          alignItems: "end",
-        },
-        stretch: {
-          alignItems: "stretch",
-        },
-        baseline: {
-          alignItems: "baseline",
-        },
+      start: {
+        alignItems: "start",
       },
-      justify: {
-        start: {
-          justifyContent: "start",
-        },
-        center: {
-          justifyContent: "center",
-        },
-        end: {
-          justifyContent: "end",
-        },
-        between: {
-          justifyContent: "space-between",
-        },
-        around: {
-          justifyContent: "space-around",
-        },
-        evenly: {
-          justifyContent: "space-evenly",
-        },
+      center: {
+        alignItems: "center",
       },
-      flow: {
-        row: {
-          gridAutoFlow: "row",
-        },
-        column: {
-          gridAutoFlow: "column",
-        },
-        dense: {
-          gridAutoFlow: "dense",
-        },
-        rowDense: {
-          gridAutoFlow: "row dense",
-        },
-        columnDense: {
-          gridAutoFlow: "column dense",
-        },
+      end: {
+        alignItems: "end",
+      },
+      stretch: {
+        alignItems: "stretch",
+      },
+      baseline: {
+        alignItems: "baseline",
+      },
+    },
+    justify: {
+      start: {
+        justifyContent: "start",
+      },
+      center: {
+        justifyContent: "center",
+      },
+      end: {
+        justifyContent: "end",
+      },
+      between: {
+        justifyContent: "space-between",
+      },
+      around: {
+        justifyContent: "space-around",
+      },
+      evenly: {
+        justifyContent: "space-evenly",
+      },
+    },
+    flow: {
+      row: {
+        gridAutoFlow: "row",
+      },
+      column: {
+        gridAutoFlow: "column",
+      },
+      dense: {
+        gridAutoFlow: "dense",
+      },
+      rowDense: {
+        gridAutoFlow: "row dense",
+      },
+      columnDense: {
+        gridAutoFlow: "column dense",
       },
     },
     columns: {

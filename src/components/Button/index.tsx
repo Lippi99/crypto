@@ -6,6 +6,15 @@ export const Button = styled("button", {
 
   variants: {
     variant: {
+      purple: {
+        background: "none",
+        border: "none",
+        color: "#B982FF",
+        fontWeight: 600,
+        borderRadius: "6px",
+        fontSize: "$4",
+        cursor: "pointer",
+      },
       black: {
         background: "black",
         border: "1px solid white",
