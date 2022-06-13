@@ -185,6 +185,64 @@ const Home: NextPage = () => {
             </Box>
           </Grid>
         </Section>
+
+        <Section css={{ position: "relative" }}>
+          <Box
+            css={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: -1,
+            }}
+          >
+            <NextImage
+              objectFit="cover"
+              width={670}
+              height={500}
+              src="/swirl.svg"
+              quality={100}
+              alt="background"
+            />
+          </Box>
+          <Box
+            css={{
+              position: "absolute",
+              top: 150,
+              right: 180,
+              bottom: 0,
+              zIndex: -1,
+            }}
+          >
+            <NextImage
+              objectFit="cover"
+              width={50}
+              height={50}
+              src="/star.svg"
+              quality={100}
+              alt="background"
+            />
+          </Box>
+
+          <Box css={{ textAlign: "center" }}>
+            <h2 className={title({ variant: "secondary" })}>
+              A crypto investment platform <br /> that invests in you
+            </h2>
+            <p className={paragraph({ variant: "main" })}>
+              We invest more resources than any other platrom in making sure
+              great <br /> support from real people is a click away, whenever
+              you need it.
+            </p>
+            <Button
+              css={{ width: "120px", padding: "$2" }}
+              variant="gradientBluePurple"
+            >
+              Get Started
+            </Button>
+          </Box>
+        </Section>
+
+        <Section></Section>
       </Box>
     </>
   );
