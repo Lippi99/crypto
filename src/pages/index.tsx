@@ -226,16 +226,6 @@ const Home: NextPage = () => {
           </Box>
 
           <Box css={{ textAlign: "center" }}>
-            <Box
-              css={{
-                position: "absolute",
-                left: "30%",
-                top: "50%",
-                boxShadow: "0 0 140px 90px #BD391C" /* outer cyan */,
-                zIndex: -999,
-              }}
-            />
-
             <h2 className={title({ variant: "secondary" })}>
               A crypto investment platform <br /> that invests in you
             </h2>
@@ -256,13 +246,72 @@ const Home: NextPage = () => {
         <Section css={{ position: "relative" }}>
           <Box
             css={{
-              width: "200px",
               position: "absolute",
-              right: "20%",
-              bottom: 0,
+              left: "16%",
+              bottom: "48%",
+              width: "40px",
+              height: "40px",
+              borderRadius: "50%",
+              boxShadow: `         
+                0 0 80px 80px #D0A22C,
+                0 0 90px 80px #82392C
+            `,
+              zIndex: -999,
+            }}
+          ></Box>
+          <Box css={{ position: "absolute", left: "15%", top: "20px" }}>
+            <NextImage
+              width={150}
+              height={160}
+              src="/field.svg"
+              objectFit="contain"
+            />
+          </Box>
+          <Box
+            css={{
+              position: "absolute",
+              left: "13%",
+              bottom: "30%",
+              zIndex: -999,
+            }}
+          >
+            <NextImage
+              width={100}
+              height={120}
+              src="/sphere.svg"
+              objectFit="contain"
+            />
+          </Box>
+          <Flex justify="center">
+            <Box css={{ textAlign: "center" }}>
+              <h2 className={title({ variant: "secondary" })}>
+                24/7 access to full service customer support
+              </h2>
+              <p className={paragraph({ variant: "main" })}>
+                We invest more resources than any other platform in making sure
+                great support from real people is <br /> a click away, whenever
+                you need it.
+              </p>
+              <Button
+                css={{ width: "120px", padding: "$2", mr: "$3" }}
+                variant="black"
+              >
+                Get Started
+              </Button>
+            </Box>
+          </Flex>
+        </Section>
+
+        <Section css={{ position: "relative" }}>
+          <Box
+            css={{
+              position: "absolute",
+              right: "50%",
+              top: "50%",
+              zIndex: -999,
               borderRadius: "50%",
               backgroundColor: "#fff",
-              boxShadow: "0 0 140px 90px #2C4982" /* outer cyan */,
+              boxShadow: "0 0 100px 90px #2C4982" /* outer cyan */,
             }}
           ></Box>
           <Box css={{ textAlign: "center" }}>
