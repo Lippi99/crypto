@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { Box } from "../components/Box";
 import { Flex } from "../components/Flex";
@@ -335,7 +335,7 @@ const Home: NextPage = ({ cryptos }: any) => {
 };
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const url =
     "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
   const response = await fetch(url);
@@ -345,6 +345,5 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       cryptos: data,
     },
-    revalidate: 6000,
   };
 };
