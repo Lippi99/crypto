@@ -1,4 +1,3 @@
-import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { Box } from "../components/Box";
 import { Flex } from "../components/Flex";
@@ -10,31 +9,9 @@ import { Button } from "../components/Button";
 import { Grid } from "../components/Grid";
 import { Table } from "../components/Table";
 import LoadingSpin from "react-loading-spin";
-import { Suspense, useEffect, useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 
-interface Cryptos {
-  data: {
-    coins: [
-      {
-        name: string;
-        symbol: string;
-        uuid: string;
-        price: string;
-        iconUrl: string;
-        change: string;
-      }
-    ];
-  };
-}
-
-interface CryptosProps {
-  cryptos: Cryptos;
-}
-
 const Home = () => {
-  // const [cryptos, setCryptos] = useState<any>([]);
-
   const config = {
     headers: {
       "X-RapidAPI-Key": "4406ccacc0msh520c1230d23c4d3p1f49f3jsn5f70dd24d631",
