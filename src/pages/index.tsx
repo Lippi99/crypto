@@ -9,8 +9,43 @@ import { Section } from "../components/Section";
 import { Button } from "../components/Button";
 import { Grid } from "../components/Grid";
 import { Table } from "../components/Table";
+import { useEffect, useState } from "react";
 
-const Home: NextPage = ({ cryptos }: any) => {
+interface Cryptos {
+  Data: [
+    {
+      CoinInfo: {
+        Name: string;
+        FullName: string;
+        Id: string;
+      };
+      DISPLAY: {
+        USD: {
+          PRICE: string;
+        };
+      };
+    }
+  ];
+}
+
+interface CryptosProps {
+  cryptos: Cryptos;
+}
+
+const Home = () => {
+  const [cryptos, setCryptos] = useState<any>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url =
+        "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
+      const response = await fetch(url);
+      const data = await response.json();
+      setCryptos(data);
+    };
+    fetchData();
+  }, [cryptos]);
+
   const title = css({
     variants: {
       variant: {
@@ -335,15 +370,15 @@ const Home: NextPage = ({ cryptos }: any) => {
 };
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const url =
-    "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
-  const response = await fetch(url);
-  const data = await response.json();
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const url =
+//     "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
+//   const response = await fetch(url);
+//   const data = await response.json();
 
-  return {
-    props: {
-      cryptos: data,
-    },
-  };
-};
+//   return {
+//     props: {
+//       cryptos: data,
+//     },
+//   };
+// };

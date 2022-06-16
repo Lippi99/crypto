@@ -67,7 +67,7 @@ export const Table = ({ cryptos }: CryptosProps) => {
 
   return (
     <table className={rows({ variant: "table" })}>
-      {cryptos.Data.map((crypto) => {
+      {cryptos.Data?.map((crypto) => {
         const { CoinInfo, DISPLAY } = crypto;
 
         return (
