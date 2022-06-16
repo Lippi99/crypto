@@ -321,6 +321,24 @@ const Home = () => {
           <Box
             css={{
               position: "absolute",
+              left: 0,
+              top: "40%",
+              zIndex: -999,
+              transform: "rotate(180deg)",
+            }}
+          >
+            <NextImage
+              src="/swirl.svg"
+              objectFit="cover"
+              width={670}
+              height={500}
+              quality={100}
+              alt="background"
+            />
+          </Box>
+          <Box
+            css={{
+              position: "absolute",
               right: "30%",
               top: "10%",
               zIndex: -999,
