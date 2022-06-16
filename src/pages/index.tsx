@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { Box } from "../components/Box";
 import { Flex } from "../components/Flex";
@@ -8,8 +8,9 @@ import { css } from "../../stitches.config";
 import { Section } from "../components/Section";
 import { Button } from "../components/Button";
 import { Grid } from "../components/Grid";
+import { Table } from "../components/Table";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ cryptos }: any) => {
   const title = css({
     variants: {
       variant: {
@@ -259,7 +260,7 @@ const Home: NextPage = () => {
               zIndex: -999,
             }}
           ></Box>
-          <Box css={{ position: "absolute", left: "15%", top: "20px" }}>
+          <Box css={{ position: "absolute", left: "15%", top: "50px" }}>
             <NextImage
               width={150}
               height={160}
@@ -306,8 +307,8 @@ const Home: NextPage = () => {
           <Box
             css={{
               position: "absolute",
-              right: "50%",
-              top: "50%",
+              right: "30%",
+              top: "10%",
               zIndex: -999,
               borderRadius: "50%",
               backgroundColor: "#fff",
@@ -324,10 +325,26 @@ const Home: NextPage = () => {
             </p>
             <Button variant="purple">Learn more &#8594;</Button>
           </Box>
+          <Flex css={{ marginTop: "$9" }} justify="center">
+            <Table cryptos={cryptos} />
+          </Flex>
         </Section>
       </Box>
     </>
   );
 };
-
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const url =
+    "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
+  const response = await fetch(url);
+  const data = await response.json();
+
+  return {
+    props: {
+      cryptos: data,
+    },
+    revalidate: 6000,
+  };
+};
