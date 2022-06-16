@@ -11,6 +11,7 @@ import { Grid } from "../components/Grid";
 import { Table } from "../components/Table";
 import LoadingSpin from "react-loading-spin";
 import { Suspense, useEffect, useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 
 interface Cryptos {
   data: {
@@ -32,26 +33,20 @@ interface CryptosProps {
 }
 
 const Home = () => {
-  const [cryptos, setCryptos] = useState<any>([]);
+  // const [cryptos, setCryptos] = useState<any>([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        "https://coinranking1.p.rapidapi.com/coins",
-        {
-          method: "GET",
-          headers: {
-            "X-RapidAPI-Key":
-              "4406ccacc0msh520c1230d23c4d3p1f49f3jsn5f70dd24d631",
-            "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
-          },
-        }
-      );
-      const data = await response.json();
-      setCryptos(data);
-    };
-    fetchData();
-  }, [cryptos]);
+  const config = {
+    headers: {
+      "X-RapidAPI-Key": "4406ccacc0msh520c1230d23c4d3p1f49f3jsn5f70dd24d631",
+      "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+    },
+  };
+
+  const {
+    data: cryptos,
+    error,
+    isFetching,
+  } = useFetch("https://coinranking1.p.rapidapi.com/coins", config);
 
   const title = css({
     variants: {
@@ -368,9 +363,7 @@ const Home = () => {
             <Button variant="purple">Learn more &#8594;</Button>
           </Box>
           <Flex css={{ marginTop: "$9" }} justify="center">
-            <Suspense fallback={<LoadingSpin />}>
-              <Table cryptos={cryptos} />
-            </Suspense>
+            {isFetching ? <LoadingSpin /> : <Table cryptos={cryptos} />}
           </Flex>
         </Section>
       </Box>
