@@ -67,23 +67,24 @@ export const Table = ({ cryptos }: CryptosProps) => {
 
   return (
     <table className={rows({ variant: "table" })}>
-      {cryptos.Data?.map((crypto) => {
-        const { CoinInfo, DISPLAY } = crypto;
-
-        return (
-          <tr key={CoinInfo.Id} className={rows({ variant: "tableRow" })}>
-            <td className={rows({ variant: "firstColumn" })}>
-              {CoinInfo.FullName}
-            </td>
-            <td className={rows({ variant: "secondColumn" })}>
-              {CoinInfo.Name}
-            </td>
-            <td className={rows({ variant: "thirdColumn" })}>
-              {DISPLAY.USD.PRICE}
-            </td>
-          </tr>
-        );
-      })}
+      <tbody>
+        {cryptos?.Data?.map((crypto) => {
+          const { CoinInfo, DISPLAY } = crypto;
+          return (
+            <tr key={CoinInfo.Id} className={rows({ variant: "tableRow" })}>
+              <td className={rows({ variant: "firstColumn" })}>
+                {CoinInfo.FullName}
+              </td>
+              <td className={rows({ variant: "secondColumn" })}>
+                {CoinInfo.Name}
+              </td>
+              <td className={rows({ variant: "thirdColumn" })}>
+                {DISPLAY.USD.PRICE}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
     </table>
   );
 };
