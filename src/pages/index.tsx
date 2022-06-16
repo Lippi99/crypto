@@ -9,23 +9,22 @@ import { Section } from "../components/Section";
 import { Button } from "../components/Button";
 import { Grid } from "../components/Grid";
 import { Table } from "../components/Table";
-import { useEffect, useState } from "react";
+import LoadingSpin from "react-loading-spin";
+import { Suspense, useEffect, useState } from "react";
 
 interface Cryptos {
-  Data: [
-    {
-      CoinInfo: {
-        Name: string;
-        FullName: string;
-        Id: string;
-      };
-      DISPLAY: {
-        USD: {
-          PRICE: string;
-        };
-      };
-    }
-  ];
+  data: {
+    coins: [
+      {
+        name: string;
+        symbol: string;
+        uuid: string;
+        price: string;
+        iconUrl: string;
+        change: string;
+      }
+    ];
+  };
 }
 
 interface CryptosProps {
@@ -37,9 +36,17 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url =
-        "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
-      const response = await fetch(url);
+      const response = await fetch(
+        "https://coinranking1.p.rapidapi.com/coins",
+        {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "4406ccacc0msh520c1230d23c4d3p1f49f3jsn5f70dd24d631",
+            "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+          },
+        }
+      );
       const data = await response.json();
       setCryptos(data);
     };
@@ -361,7 +368,9 @@ const Home = () => {
             <Button variant="purple">Learn more &#8594;</Button>
           </Box>
           <Flex css={{ marginTop: "$9" }} justify="center">
-            <Table cryptos={cryptos} />
+            <Suspense fallback={<LoadingSpin />}>
+              <Table cryptos={cryptos} />
+            </Suspense>
           </Flex>
         </Section>
       </Box>
@@ -369,16 +378,3 @@ const Home = () => {
   );
 };
 export default Home;
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const url =
-//     "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
-//   const response = await fetch(url);
-//   const data = await response.json();
-
-//   return {
-//     props: {
-//       cryptos: data,
-//     },
-//   };
-// };

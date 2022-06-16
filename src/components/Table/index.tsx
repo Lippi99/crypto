@@ -1,21 +1,22 @@
+import Image from "next/image";
 import React from "react";
 import { css } from "../../../stitches.config";
+import { Box } from "../Box";
+import { Flex } from "../Flex";
 
 interface Cryptos {
-  Data: [
-    {
-      CoinInfo: {
-        Name: string;
-        FullName: string;
-        Id: string;
-      };
-      DISPLAY: {
-        USD: {
-          PRICE: string;
-        };
-      };
-    }
-  ];
+  data: {
+    coins: [
+      {
+        name: string;
+        symbol: string;
+        uuid: string;
+        price: string;
+        iconUrl: string;
+        change: string;
+      }
+    ];
+  };
 }
 
 interface CryptosProps {
@@ -49,14 +50,25 @@ export const Table = ({ cryptos }: CryptosProps) => {
         },
         secondColumn: {
           color: "#B982FF",
-
+          textAlign: "center",
           paddingTop: "$5",
           paddingBottom: "$5",
           fontFamily: "Inter",
         },
         thirdColumn: {
           color: "#ffffff",
-
+          paddingTop: "$5",
+          paddingBottom: "$5",
+          fontFamily: "Inter",
+        },
+        fourthColumnGreen: {
+          color: "rgb(3, 166, 109)",
+          paddingTop: "$5",
+          paddingBottom: "$5",
+          fontFamily: "Inter",
+        },
+        fourthColumnRed: {
+          color: "#CF304A",
           paddingTop: "$5",
           paddingBottom: "$5",
           fontFamily: "Inter",
@@ -68,18 +80,56 @@ export const Table = ({ cryptos }: CryptosProps) => {
   return (
     <table className={rows({ variant: "table" })}>
       <tbody>
-        {cryptos?.Data?.map((crypto) => {
-          const { CoinInfo, DISPLAY } = crypto;
+        {cryptos.data?.coins?.slice(0, 5).map((crypto) => {
+          const { name, price, uuid, symbol, iconUrl, change } = crypto;
+
+          const fullPrice = Number(price).toFixed(2);
+          const variablePrice = Number(change);
+
           return (
-            <tr key={CoinInfo.Id} className={rows({ variant: "tableRow" })}>
+            <tr key={uuid} className={rows({ variant: "tableRow" })}>
               <td className={rows({ variant: "firstColumn" })}>
-                {CoinInfo.FullName}
+                <Flex align="center" justify="center">
+                  <Image
+                    title={name}
+                    src={iconUrl}
+                    alt={name}
+                    width={30}
+                    height={30}
+                    objectFit="cover"
+                  />
+                  <Box css={{ marginLeft: "$3" }}>{symbol}</Box>
+                </Flex>
               </td>
               <td className={rows({ variant: "secondColumn" })}>
-                {CoinInfo.Name}
+                <Flex align="center" justify="center">
+                  {name}
+                </Flex>
               </td>
               <td className={rows({ variant: "thirdColumn" })}>
-                {DISPLAY.USD.PRICE}
+                <Flex
+                  align="center"
+                  justify="center"
+                  css={{ marginRight: "$6" }}
+                >
+                  {"$"} {fullPrice}
+                </Flex>
+              </td>
+              <td
+                className={rows({
+                  variant:
+                    variablePrice > 0 ? "fourthColumnGreen" : "fourthColumnRed",
+                })}
+              >
+                <Flex
+                  align="center"
+                  justify="center"
+                  css={{ marginRight: "$6" }}
+                >
+                  {variablePrice > 0
+                    ? `+${variablePrice}%`
+                    : `${variablePrice}%`}
+                </Flex>
               </td>
             </tr>
           );
