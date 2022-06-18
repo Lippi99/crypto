@@ -20,6 +20,7 @@ export const {
     bp2: '(min-width: 900px)',
     bp3: '(min-width: 1200px)',
     bp4: '(min-width: 1800px)',
+    bp5: '(max-width: 900px)',
     motion: '(prefers-reduced-motion)',
     hover: '(any-hover: hover)',
     dark: '(prefers-color-scheme: dark)',
