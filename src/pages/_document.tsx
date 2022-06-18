@@ -7,6 +7,10 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
+          />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
