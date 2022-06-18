@@ -33,6 +33,9 @@ const Home = () => {
           color: "White",
           fontWeight: "bolder",
           fontFamily: "Inter",
+          "@bp5": {
+            fontSize: "$8",
+          },
         },
         secondary: {
           fontSize: "$7",
@@ -113,7 +116,7 @@ const Home = () => {
             direction="column"
             justify="between"
             align="center"
-            css={{ marginBottom: "$9" }}
+            css={{ marginBottom: "$9", "@bp5": { textAlign: "center" } }}
           >
             <h1 className={title({ variant: "main" })}>
               We make crypto <br /> clear and simple
@@ -130,7 +133,12 @@ const Home = () => {
             </Button>
           </Flex>
 
-          <Grid columns={3} gap={3} justify="between">
+          <Grid
+            columns={3}
+            gap={3}
+            justify="between"
+            css={{ "@bp5": { gridTemplateColumns: "1fr" } }}
+          >
             <Box
               css={{
                 background: "#1A1B23",
@@ -148,6 +156,7 @@ const Home = () => {
                 src="/arrow-left-right.svg"
                 width={70}
                 height={70}
+                alt="arrow left right"
                 objectFit="contain"
               />
               <h2 className={title({ variant: "secondary" })}>Trade Desk</h2>
@@ -175,6 +184,8 @@ const Home = () => {
                 src="/coin-flip-atm.svg"
                 width={70}
                 height={70}
+                quality={90}
+                alt="coin flip"
                 objectFit="contain"
               />
               <h2 className={title({ variant: "secondary" })}>CoinFlip ATMs</h2>
@@ -202,6 +213,8 @@ const Home = () => {
                 src="/coin-flip-wallet.svg"
                 width={70}
                 height={70}
+                quality={90}
+                alt="coin flip wallet"
                 objectFit="contain"
               />
               <h2 className={title({ variant: "secondary" })}>
@@ -233,7 +246,7 @@ const Home = () => {
               height={500}
               src="/swirl.svg"
               quality={100}
-              alt="background"
+              alt="swirl image"
             />
           </Box>
           <Box
@@ -251,7 +264,7 @@ const Home = () => {
               height={50}
               src="/star.svg"
               quality={100}
-              alt="background"
+              alt="star icon"
             />
           </Box>
 
@@ -274,61 +287,80 @@ const Home = () => {
         </Section>
 
         <Section css={{ position: "relative" }}>
-          <Box
-            css={{
-              position: "absolute",
-              left: "16%",
-              bottom: "48%",
-              width: "40px",
-              height: "40px",
-              borderRadius: "50%",
-              boxShadow: `         
+          <Flex justify="center">
+            <Box
+              css={{
+                position: "absolute",
+                left: "16%",
+                bottom: "48%",
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                boxShadow: `         
                 0 0 80px 80px #D0A22C,
                 0 0 90px 80px #82392C
             `,
-              zIndex: -999,
-            }}
-          ></Box>
-          <Box css={{ position: "absolute", left: "15%", top: "50px" }}>
-            <NextImage
-              width={150}
-              height={160}
-              src="/field.svg"
-              objectFit="contain"
-            />
-          </Box>
-          <Box
-            css={{
-              position: "absolute",
-              left: "13%",
-              bottom: "30%",
-              zIndex: -999,
-            }}
-          >
-            <NextImage
-              width={100}
-              height={120}
-              src="/sphere.svg"
-              objectFit="contain"
-            />
-          </Box>
-          <Flex justify="center">
-            <Box css={{ textAlign: "center" }}>
-              <h2 className={title({ variant: "secondary" })}>
-                24/7 access to full service customer support
-              </h2>
-              <p className={paragraph({ variant: "main" })}>
-                We invest more resources than any other platform in making sure
-                great support from real people is <br /> a click away, whenever
-                you need it.
-              </p>
-              <Button
-                css={{ width: "120px", padding: "$2", mr: "$3" }}
-                variant="black"
-              >
-                Get Started
-              </Button>
+                zIndex: -999,
+                "@bp5": {
+                  display: "none",
+                },
+              }}
+            ></Box>
+            <Box
+              css={{
+                position: "absolute",
+                left: "15%",
+                top: "50px",
+                "@bp5": {
+                  display: "none",
+                },
+              }}
+            >
+              <NextImage
+                width={150}
+                height={160}
+                alt="field icon"
+                src="/field.svg"
+                objectFit="contain"
+              />
             </Box>
+            <Box
+              css={{
+                position: "absolute",
+                left: "13%",
+                bottom: "30%",
+                zIndex: -999,
+                "@bp5": {
+                  display: "none",
+                },
+              }}
+            >
+              <NextImage
+                width={100}
+                height={120}
+                alt="sphere icon"
+                src="/sphere.svg"
+                objectFit="contain"
+              />
+            </Box>
+            <Flex justify="center">
+              <Box css={{ textAlign: "center" }}>
+                <h2 className={title({ variant: "secondary" })}>
+                  24/7 access to full service customer support
+                </h2>
+                <p className={paragraph({ variant: "main" })}>
+                  We invest more resources than any other platform in making
+                  sure great support from real people is <br /> a click away,
+                  whenever you need it.
+                </p>
+                <Button
+                  css={{ width: "120px", padding: "$2", mr: "$3" }}
+                  variant="black"
+                >
+                  Get Started
+                </Button>
+              </Box>
+            </Flex>
           </Flex>
         </Section>
 
@@ -348,7 +380,7 @@ const Home = () => {
               width={670}
               height={500}
               quality={100}
-              alt="background"
+              alt="swirl image"
             />
           </Box>
           <Box
@@ -385,6 +417,13 @@ const Home = () => {
               width: "100%",
               margin: "0 auto",
               position: "relative",
+
+              "@bp5": {
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              },
             }}
           >
             <Box
@@ -396,9 +435,10 @@ const Home = () => {
                 boxShadow: `0 0 100px 90px #00C2FF,
                 0 0 100px 90px #FF29C3
                 `,
+                "@bp5": { display: "none" },
               }}
             ></Box>
-            <Box>
+            <Box css={{ "@bp5": { textAlign: "center" } }}>
               <h2 className={title({ variant: "secondary" })}>
                 Take your first step <br /> into safe, secure crypto investing
               </h2>
@@ -406,19 +446,29 @@ const Home = () => {
                 Separated they live in Bookmarks right at the coast of the
                 famous <br />
                 Semantics, large language ocean Separated they live in Bookmarks
-                right at the coast.
+                right at the coast.
               </p>
               <Button
-                css={{ width: "120px", padding: "$2" }}
+                css={{
+                  width: "120px",
+                  padding: "$2",
+                }}
                 variant="gradientBluePurple"
               >
                 Get Started
               </Button>
             </Box>
-            <Box>
+            <Box
+              css={{
+                "@bp5": {
+                  display: "none",
+                },
+              }}
+            >
               <NextImage
                 src="/bag.svg"
                 width={200}
+                alt="bag icon"
                 height={200}
                 objectFit="cover"
               />
@@ -442,10 +492,15 @@ const Home = () => {
               `,
             }}
           ></Box>
-          <Flex justify="between" align="center">
+          <Flex
+            justify="between"
+            align="center"
+            css={{ "@bp5": { flexDirection: "column" } }}
+          >
             <Box>
               <NextImage
                 src="/logo.svg"
+                alt="logo"
                 width={200}
                 height={60}
                 objectFit="contain"
@@ -471,7 +526,7 @@ const Home = () => {
                 © 2022 Felipe Lippi
               </p>
             </Box>
-            <Box>
+            <Box css={{ "@bp5": { display: "none" } }}>
               <p className={paragraph({ variant: "main" })}>Company</p>
               <p className={paragraph({ variant: "main" })}>About</p>
               <p className={paragraph({ variant: "main" })}>Careers</p>
@@ -479,7 +534,17 @@ const Home = () => {
               <p className={paragraph({ variant: "main" })}>News</p>
               <p className={paragraph({ variant: "main" })}>Merch</p>
             </Box>
-            <Box>
+            <Box
+              css={{
+                "@bp5": {
+                  width: "100%",
+                  paddingLeft: "$4",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                },
+              }}
+            >
               <p className={paragraph({ variant: "main" })}>
                 Privacy Policy and Terms of Service
               </p>

@@ -5,8 +5,6 @@ import NextLink from "next/link";
 import NextImage from "next/image";
 import { Button } from "../Button";
 import { Box } from "../Box";
-import { slide as Menu } from "react-burger-menu";
-import { css } from "../../../stitches.config";
 import { Burger } from "../Burger";
 
 export const Header = () => {

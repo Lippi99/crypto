@@ -5,6 +5,7 @@ import NextImage from "next/image";
 import NextLink from "next/link";
 import { slide as Menu } from "react-burger-menu";
 import { Text } from "../Text";
+import { Button } from "../Button";
 
 export const Burger = () => {
   const burgerStyle = {
@@ -97,6 +98,20 @@ export const Burger = () => {
               <Text>Support</Text>
             </Link>
           </NextLink>
+          <Box css={{ display: "block", marginTop: "$6" }}>
+            <Button
+              css={{ width: "90px", padding: "$2", mr: "$3" }}
+              variant="black"
+            >
+              Sign in
+            </Button>
+            <Button
+              css={{ width: "90px", padding: "$2" }}
+              variant="gradientBluePurple"
+            >
+              Sign up
+            </Button>
+          </Box>
         </Flex>
       </Menu>
     </Box>
