@@ -30,6 +30,7 @@ export const {
   theme: {
     colors: {
       light: "#FFFFFF",
+      dark: "#0B0B0F",
       grayLight: "#898CA9",
       grayDark: "#2B2C3B",
       grayDarker: "#1A1B23",
