@@ -15,6 +15,7 @@ export const {
 } = createStitches({
 
  
+ 
   media: {
     bp1: '(min-width: 520px)',
     bp2: '(min-width: 900px)',
@@ -27,6 +28,16 @@ export const {
     light: '(prefers-color-scheme: light)',
   },
   theme: {
+    colors: {
+      light: "#FFFFFF",
+      grayLight: "#898CA9",
+      grayDark: "#2B2C3B",
+      grayDarker: "#1A1B23",
+      greenLighter: "rgb(3, 166, 109)",
+      danger: "#CF304A",
+      purple: "#B982FF"
+    },
+
     space: {
       1: '5px',
       2: '10px',

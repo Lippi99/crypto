@@ -10,6 +10,7 @@ import { Grid } from "../components/Grid";
 import { Table } from "../components/Table";
 import LoadingSpin from "react-loading-spin";
 import { useFetch } from "../hooks/useFetch";
+import { toast, ToastContainer } from "react-toastify";
 
 const Home = () => {
   const config = {
@@ -30,7 +31,7 @@ const Home = () => {
       variant: {
         main: {
           fontSize: "$9",
-          color: "White",
+          color: "$light",
           fontWeight: "bolder",
           fontFamily: "Inter",
           "@bp5": {
@@ -52,7 +53,7 @@ const Home = () => {
       variant: {
         main: {
           fontSize: "$1",
-          color: "#898CA9",
+          color: "$grayLight",
           fontFamily: "Inter",
           marginTop: "$3",
           marginBottom: "$4",
@@ -87,6 +88,8 @@ const Home = () => {
       </Head>
       <Box>
         <Header />
+        {error && toast.error(error?.message as any)}
+        <ToastContainer />
         <Box
           css={{
             position: "absolute",
@@ -141,7 +144,7 @@ const Home = () => {
           >
             <Box
               css={{
-                background: "#1A1B23",
+                background: "$grayDarker",
                 borderRadius: "20px",
                 textAlign: "center",
                 marginTop: "$7",
@@ -169,7 +172,7 @@ const Home = () => {
 
             <Box
               css={{
-                background: "#1A1B23",
+                background: "$grayDarker",
                 borderRadius: "20px",
                 textAlign: "center",
                 marginTop: "$7",
@@ -198,7 +201,7 @@ const Home = () => {
 
             <Box
               css={{
-                background: "#1A1B23",
+                background: "$grayDarker",
                 borderRadius: "20px",
                 textAlign: "center",
                 marginTop: "$7",

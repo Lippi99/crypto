@@ -35,27 +35,27 @@ export const Header = () => {
       <Flex as="nav">
         <Burger />
         <Flex css={{ "@bp5": { display: "none" } }}>
-          <NextLink href="/buy">
+          <NextLink href="/">
             <Link variant="white" css={{ mr: "$6" }}>
               <Text>Buy / Sell</Text>
             </Link>
           </NextLink>
-          <NextLink href="grow">
+          <NextLink href="/">
             <Link variant="white" css={{ mr: "$6" }}>
               <Text>Grow</Text>
             </Link>
           </NextLink>
-          <NextLink href="markets">
+          <NextLink href="/">
             <Link variant="white" css={{ mr: "$6" }}>
               <Text>Markets</Text>
             </Link>
           </NextLink>
-          <NextLink href="business">
+          <NextLink href="/">
             <Link variant="white" css={{ mr: "$6" }}>
               <Text>Business</Text>
             </Link>
           </NextLink>
-          <NextLink href="support">
+          <NextLink href="/">
             <Link variant="white">
               <Text>Support</Text>
             </Link>

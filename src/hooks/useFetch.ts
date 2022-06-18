@@ -5,7 +5,7 @@ import axios from "axios"
 
 export const useFetch = (url: string, config: any) => {
   const [data, setData] = useState<any>([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<any>(null);
   const [isFetching, setIsFetching] = useState(true);
 
 
