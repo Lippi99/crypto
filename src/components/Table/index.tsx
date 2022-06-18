@@ -35,6 +35,9 @@ export const Table = ({ cryptos }: CryptosProps) => {
           marginRight: "auto",
           borderCollapse: "collapse",
           borderRadius: "25px",
+          "@bp5": {
+            fontSize: "$1",
+          },
         },
         tableRow: {
           borderBottom: "1px solid $grayDark",

@@ -498,7 +498,7 @@ const Home = () => {
           <Flex
             justify="between"
             align="center"
-            css={{ "@bp5": { flexDirection: "column" } }}
+            css={{ "@bp5": { flexDirection: "column", textAlign: "center" } }}
           >
             <Box>
               <NextImage
