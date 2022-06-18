@@ -15,6 +15,14 @@ export const Button = styled("button", {
         fontSize: "$4",
         cursor: "pointer",
       },
+      borderGradient: {
+        border: "1px solid #933FFE",
+        color: "white",
+        fontWeight: 600,
+
+        fontSize: "$4",
+        cursor: "pointer",
+      },
       black: {
         background: "black",
         border: "1px solid white",

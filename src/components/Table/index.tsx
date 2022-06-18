@@ -28,7 +28,7 @@ export const Table = ({ cryptos }: CryptosProps) => {
     variants: {
       variant: {
         table: {
-          maxWidth: "800px",
+          maxWidth: "1200px",
           width: "100%",
           background: "#1A1B23",
           padding: "$5",

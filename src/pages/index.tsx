@@ -53,8 +53,23 @@ const Home = () => {
           fontFamily: "Inter",
           marginTop: "$3",
           marginBottom: "$4",
-          textAlign: "center",
           lineHeight: 1.5,
+        },
+      },
+    },
+  });
+
+  const footer = css({
+    variants: {
+      variant: {
+        footer: {
+          maxWidth: "1200px",
+          width: "100%",
+          paddingTop: "$9",
+          paddingBottom: "$4",
+          margin: "0 auto",
+          position: "relative",
+          opacity: 0.8,
         },
       },
     },
@@ -361,6 +376,131 @@ const Home = () => {
             {isFetching ? <LoadingSpin /> : <Table cryptos={cryptos} />}
           </Flex>
         </Section>
+
+        <Section>
+          <Flex
+            justify="between"
+            css={{
+              maxWidth: "1200px",
+              width: "100%",
+              margin: "0 auto",
+              position: "relative",
+            }}
+          >
+            <Box
+              css={{
+                position: "absolute",
+                right: "10%",
+                bottom: "50%",
+                borderRadius: "50%",
+                boxShadow: `0 0 100px 90px #00C2FF,
+                0 0 100px 90px #FF29C3
+                `,
+              }}
+            ></Box>
+            <Box>
+              <h2 className={title({ variant: "secondary" })}>
+                Take your first step <br /> into safe, secure crypto investing
+              </h2>
+              <p className={paragraph({ variant: "main" })}>
+                Separated they live in Bookmarks right at the coast of the
+                famous <br />
+                Semantics, large language ocean Separated they live in Bookmarks
+                right at the coast.
+              </p>
+              <Button
+                css={{ width: "120px", padding: "$2" }}
+                variant="gradientBluePurple"
+              >
+                Get Started
+              </Button>
+            </Box>
+            <Box>
+              <NextImage
+                src="/bag.svg"
+                width={200}
+                height={200}
+                objectFit="cover"
+              />
+            </Box>
+          </Flex>
+        </Section>
+
+        <footer
+          className={footer({
+            variant: "footer",
+          })}
+        >
+          <Box
+            css={{
+              position: "absolute",
+              left: "20%",
+              bottom: "30%",
+              borderRadius: "50%",
+              boxShadow: `0 0 100px 2px #18FF9E,
+                0 0 300px 90px #17FFE3
+                `,
+            }}
+          ></Box>
+          <Flex justify="between" align="center">
+            <Box>
+              <NextImage
+                src="/logo.svg"
+                width={200}
+                height={60}
+                objectFit="contain"
+              />
+              <p className={paragraph({ variant: "main" })}>
+                CoinFlip, the world is leading bitcoin ATM operator, makes{" "}
+                <br /> it so flippin is easy to buy and sell bitcoin via cash,
+                card, <br /> or bank transfer. <br /> Sign up to get the latest
+                in CoinFlip news, discounts, and more.
+              </p>
+              <Button
+                css={{
+                  width: "300px",
+                  padding: "$2",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                }}
+                variant="borderGradient"
+              >
+                Email Address
+              </Button>
+              <p className={paragraph({ variant: "main" })}>
+                © 2022 Felipe Lippi
+              </p>
+            </Box>
+            <Box>
+              <p className={paragraph({ variant: "main" })}>Company</p>
+              <p className={paragraph({ variant: "main" })}>About</p>
+              <p className={paragraph({ variant: "main" })}>Careers</p>
+              <p className={paragraph({ variant: "main" })}>Press</p>
+              <p className={paragraph({ variant: "main" })}>News</p>
+              <p className={paragraph({ variant: "main" })}>Merch</p>
+            </Box>
+            <Box>
+              <p className={paragraph({ variant: "main" })}>
+                Privacy Policy and Terms of Service
+              </p>
+              <p className={paragraph({ variant: "main" })}>
+                CoinFlip Privacy Policy
+              </p>
+              <p className={paragraph({ variant: "main" })}>
+                CoinFlip Biometrics Privacy Policy
+              </p>
+              <p className={paragraph({ variant: "main" })}>
+                CoinFlip Financial Privacy Notice
+              </p>
+              <p className={paragraph({ variant: "main" })}>
+                CoinFlip Terms of Service
+              </p>
+              <p className={paragraph({ variant: "main" })}>
+                CoinFlip Trade Desk Terms of Service
+              </p>
+            </Box>
+          </Flex>
+        </footer>
       </Box>
     </>
   );
