@@ -105,7 +105,7 @@ const Home = () => {
             src="/bg-img.svg"
             layout="fill"
             quality={100}
-            priority
+            priority={true}
             alt="background"
           />
         </Box>
