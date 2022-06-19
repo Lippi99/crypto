@@ -273,24 +273,6 @@ const Home = () => {
               alt="swirl image"
             />
           </Box>
-          <Box
-            css={{
-              position: "absolute",
-              top: 150,
-              right: 180,
-              bottom: 0,
-              zIndex: -1,
-            }}
-          >
-            <NextImage
-              objectFit="cover"
-              width={50}
-              height={50}
-              src="/star.svg"
-              quality={100}
-              alt="star icon"
-            />
-          </Box>
 
           <Box css={{ textAlign: "center" }}>
             <h2 className={title({ variant: "secondary" })}>
@@ -514,6 +496,7 @@ const Home = () => {
               boxShadow: `0 0 100px 2px #18FF9E,
                 0 0 300px 90px #17FFE3
               `,
+              "@bp5": { display: "none" },
             }}
           ></Box>
           <Flex
