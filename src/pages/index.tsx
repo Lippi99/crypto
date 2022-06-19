@@ -103,6 +103,7 @@ const Home = () => {
           <NextImage
             objectFit="cover"
             src="/bg-img.svg"
+            priority
             layout="fill"
             alt="background"
           />
