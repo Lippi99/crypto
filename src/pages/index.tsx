@@ -487,18 +487,6 @@ const Home = () => {
             variant: "footer",
           })}
         >
-          <Box
-            css={{
-              position: "absolute",
-              left: "20%",
-              bottom: "30%",
-              borderRadius: "50%",
-              boxShadow: `0 0 100px 2px #18FF9E,
-                0 0 300px 90px #17FFE3
-              `,
-              "@bp5": { display: "none" },
-            }}
-          ></Box>
           <Flex
             justify="between"
             align="center"
