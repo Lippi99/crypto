@@ -3,7 +3,7 @@ import { Box } from "../components/Box";
 import { Flex } from "../components/Flex";
 import { Header } from "../components/Header";
 import NextImage from "next/image";
-import { css } from "../../stitches.config";
+import { css, keyframes } from "../../stitches.config";
 import { Section } from "../components/Section";
 import { Button } from "../components/Button";
 import { Grid } from "../components/Grid";
@@ -79,6 +79,27 @@ const Home = () => {
     },
   });
 
+  const animation = keyframes({
+    " 0%": {
+      opacity: 0,
+      transform: "scale(1.3)",
+    },
+    "100%": {
+      opacity: 1,
+      transform: "(1)",
+    },
+  });
+
+  const background = css({
+    variants: {
+      variant: {
+        zoom: {
+          animation: `${animation} 10000ms ease-out`,
+        },
+      },
+    },
+  });
+
   return (
     <>
       <Head>
@@ -101,6 +122,7 @@ const Home = () => {
           }}
         >
           <NextImage
+            className={background({ variant: "zoom" })}
             objectFit="cover"
             src="/bg-img.svg"
             priority
