@@ -104,8 +104,6 @@ const Home = () => {
             objectFit="cover"
             src="/bg-img.svg"
             layout="fill"
-            quality={100}
-            priority={true}
             alt="background"
           />
         </Box>
