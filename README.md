@@ -4,9 +4,6 @@
 First, run the development server:
 
 ```bash
-1 - npm install
-2 - npm run dev
-# or
 1 - yarn add or yarn
 2 - yarn dev
 ```
