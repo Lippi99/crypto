@@ -4,7 +4,7 @@
 First, run the development server:
 
 ```bash
-1 - yarn add or yarn
+1 - yarn
 2 - yarn dev
 ```
 
